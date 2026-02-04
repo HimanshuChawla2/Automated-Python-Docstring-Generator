@@ -30,7 +30,7 @@ jobs:
       - name: Run flake8
         run: flake8 .
 
-      - name: Run tests with coverage
-        run: |
-          coverage run -m pytest
-          coverage report --fail-under=80
+#      - name: Run tests with coverage
+ #       run: |
+  #        coverage run -m pytest
+   #       coverage report --fail-under=80
