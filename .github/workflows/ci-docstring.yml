@@ -1,0 +1,36 @@
+name: Docstring & Quality Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest coverage pydocstyle black flake8
+
+      - name: Run pydocstyle
+        run: pydocstyle .
+
+      - name: Run custom docstring coverage check
+        run: python tools/check_coverage.py
+
+      - name: Run flake8
+        run: flake8 .
+
+      - name: Run tests with coverage
+        run: |
+          coverage run -m pytest
+          coverage report --fail-under=80

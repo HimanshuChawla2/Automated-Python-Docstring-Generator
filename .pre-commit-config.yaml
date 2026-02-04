@@ -1,0 +1,23 @@
+repos:
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.3.0
+    hooks:
+      - id: pydocstyle
+
+  - repo: https://github.com/psf/black
+    rev: 24.3.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+
+  - repo: local
+    hooks:
+      - id: enforce-docstring-coverage
+        name: Enforce Docstring Coverage
+        entry: python tools/check_coverage.py
+        language: python
+        pass_filenames: false
