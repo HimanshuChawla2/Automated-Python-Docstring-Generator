@@ -1,0 +1,9 @@
+streamlit
+plotly
+pydocstyle
+black
+flake8
+coverage
+pytest
+tomli
+Path
