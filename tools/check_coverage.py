@@ -4,7 +4,7 @@ import ast
 import sys
 from pathlib import Path
 
-THRESHOLD = 60  # or read from pyproject.toml if you want
+THRESHOLD = 80  # or read from pyproject.toml if you want
 
 
 def calc_coverage(path: Path) -> float:
