@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.cfg
+pydocstringGenerator/__init__.py
+pydocstringGenerator.egg-info/PKG-INFO
+pydocstringGenerator.egg-info/SOURCES.txt
+pydocstringGenerator.egg-info/dependency_links.txt
+pydocstringGenerator.egg-info/requires.txt
+pydocstringGenerator.egg-info/top_level.txt

@@ -1,0 +1,12 @@
+streamlit>=1.0.0
+plotly>=5.0.0
+pydocstyle>=6.0.0
+
+[:python_version < "3.11"]
+tomli>=1.0.0
+
+[dev]
+black>=23.0.0
+flake8>=6.0.0
+coverage>=7.0.0
+pytest>=7.0.0

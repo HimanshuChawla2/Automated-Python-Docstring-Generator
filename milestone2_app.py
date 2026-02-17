@@ -46,9 +46,7 @@ def map_nodes(tree):
     for node in ast.walk(tree):
 
         # -------- Functions --------
-        if isinstance(node, ast.FunctionDef) and not isinstance(
-            getattr(node, "parent", None), ast.ClassDef
-        ):
+        if isinstance(node, ast.FunctionDef) and not isinstance(getattr(node, "parent", None), ast.ClassDef):
             node_map["functions"].append(
                 {
                     "node": node,
@@ -167,11 +165,7 @@ def detect_attributes(class_node):
             for inner in ast.walk(n):
                 if isinstance(inner, ast.Assign):
                     for t in inner.targets:
-                        if (
-                            isinstance(t, ast.Attribute)
-                            and isinstance(t.value, ast.Name)
-                            and t.value.id == "self"
-                        ):
+                        if isinstance(t, ast.Attribute) and isinstance(t.value, ast.Name) and t.value.id == "self":
                             attrs.append(t.attr)
     return list(set(attrs))  # unique attributes
 
@@ -293,9 +287,7 @@ def insert_docstrings_into_code(code, node_map, format_type, mode):
         # If function/class already has docstring, remove it first
         if has_doc:
             first_stmt = node.body[0]
-            if isinstance(first_stmt, ast.Expr) and isinstance(
-                first_stmt.value, ast.Str
-            ):
+            if isinstance(first_stmt, ast.Expr) and isinstance(first_stmt.value, ast.Str):
                 start = first_stmt.lineno - 1
                 end = first_stmt.end_lineno
                 del new_lines[start:end]
@@ -318,9 +310,7 @@ def check_pep257(code):
     import tempfile
     import os
 
-    with tempfile.NamedTemporaryFile(
-        delete=False, suffix=".py", mode="w", encoding="utf-8"
-    ) as tmp:
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".py", mode="w", encoding="utf-8") as tmp:
         tmp.write(code)
         tmp_path = tmp.name
 
@@ -336,7 +326,7 @@ def check_pep257(code):
 # ==========================================================================================
 
 st.set_page_config(page_title="Python Docstring Analyzer", layout="wide")
-st.title("Python Docstring Analyzer — Milestone 2")
+st.title("Python Docstring Analyzer")
 
 
 # Sidebar
@@ -460,9 +450,7 @@ if uploaded:
         # ---------------------------------------
         bar = go.Figure()
 
-        bar.add_bar(
-            name="Compliant", x=["Compliant"], y=[compliant], marker_color="green"
-        )
+        bar.add_bar(name="Compliant", x=["Compliant"], y=[compliant], marker_color="green")
         bar.add_bar(name="Warnings", x=["Warnings"], y=[warnings], marker_color="gold")
         bar.add_bar(name="Errors", x=["Errors"], y=[errors], marker_color="red")
 
@@ -527,11 +515,7 @@ if uploaded:
         else:
             for msg in pep_report:
                 is_warning = msg.code.startswith("D2")
-                bg = (
-                    "rgba(250, 204, 21, 0.12)"
-                    if is_warning
-                    else "rgba(239, 68, 68, 0.12)"
-                )
+                bg = "rgba(250, 204, 21, 0.12)" if is_warning else "rgba(239, 68, 68, 0.12)"
                 border = "#facc15" if is_warning else "#ef4444"
 
                 st.markdown(
@@ -580,9 +564,7 @@ if generate_btn and uploaded:
         node_map2 = map_nodes(tree2)
 
         # STEP 4 — Now insert function/class docstrings safely
-        updated_code = insert_docstrings_into_code(
-            code_with_module, node_map2, format_type, mode_value
-        )
+        updated_code = insert_docstrings_into_code(code_with_module, node_map2, format_type, mode_value)
 
         # Show updated code
         st.code(updated_code, language="python")
