@@ -67,15 +67,15 @@ with open("your_file_updated.py", "w") as f:
 
 ---
 
-## ðŸ“š Complete API Documentation
+## Complete API Documentation
 
 This README provides a quick overview. For **detailed documentation on all available functions**, their parameters, return values, and complete examples, see:
 
-- **[QUICKSTART.md](QUICKSTART.md)** - 5-minute quick start guide with basic examples â­ Start here!
+- **[QUICKSTART.md](QUICKSTART.md)** - 5-minute quick start guide with basic examples Start here!
 - **[EXAMPLES.md](EXAMPLES.md)** - 12+ practical, copy-paste ready code examples for common tasks
 - **[DOCUMENTATION.md](DOCUMENTATION.md)** - Full API reference with all 14 functions and detailed examples
 
-**Recommended Flow:** QUICKSTART.md â†’ EXAMPLES.md â†’ DOCUMENTATION.md
+**Recommended Flow:** QUICKSTART.md EXAMPLES.md DOCUMENTATION.md
 
 ---
 
@@ -310,5 +310,5 @@ Created by Himanshu Chawla under Infosys Springboard Internship
 ## Support
 
 For issues, questions, or suggestions:
-- ðŸ› GitHub Issues: [Report a bug](https://github.com/himanshu-chawla/pydocstringGenerator/issues)
-- ðŸ“š Documentation: [Full docs](https://github.com/himanshu-chawla/pydocstringGenerator#readme)
+- GitHub Issues: [Report a bug](https://github.com/himanshu-chawla/pydocstringGenerator/issues)
+- Documentation: [Full docs](https://github.com/himanshu-chawla/pydocstringGenerator#readme)
